@@ -23,6 +23,7 @@ public class tableroManager : MonoBehaviour
     public Count comidaCount = new Count(1,5);
     public GameObject salida;
     public GameObject Jugador;
+    public static GameObject instanciaJugador;
     public GameObject A;
     public GameObject[] tilesSuelo;
     public GameObject[] tilesPared;
@@ -85,7 +86,7 @@ public class tableroManager : MonoBehaviour
         colocarObjectoRandom(tilesComida, comidaCount.maximo, comidaCount.minimo);
         int nEnemigos = (int)Mathf.Log(nivel, 2f);
         Instantiate(salida, new Vector3(columnas - 1, filas - 1, 0f), Quaternion.identity);
-        Instantiate(Jugador, new Vector3(0, 0, 0f), Quaternion.identity);
+        instanciaJugador = Instantiate(Jugador, new Vector3(0, 0, 0f), Quaternion.identity);
         colocarObjectoRandom(tilesEnemigo, nEnemigos, nEnemigos);
         Instantiate(A, new Vector3(0, 0, 0), Quaternion.identity);
     }

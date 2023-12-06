@@ -13,6 +13,7 @@ public class Controller : MonoBehaviour
     public int vida;
     public float tInvin;
     float tGolpeado;
+    public GameObject explPlayer;
 
     public Transform puntoDisparo;
     public GameObject proyectil;
@@ -37,6 +38,7 @@ public class Controller : MonoBehaviour
             vida -= 1;
             if (vida <= 0)
             {
+                Instantiate(explPlayer, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
             tGolpeado = Time.time;
